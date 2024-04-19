@@ -38,10 +38,10 @@ export const metadata = {
   ],
   authors: [
     {
-      name: "Saasfly",
+      name: "Laani",
     },
   ],
-  creator: "Saasfly",
+  creator: "Laani",
   openGraph: {
     type: "website",
     locale: "en_US",
