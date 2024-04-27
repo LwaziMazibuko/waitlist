@@ -1,5 +1,5 @@
 {
-  "name": "@saasfly/nextjs",
+  "name": "@laani/nextjs",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -33,10 +33,6 @@
   },
   "devDependencies": {
     "vercel": "33.7.1",
-    "@saasfly/eslint-config": "workspace:*",
-    "@saasfly/prettier-config": "workspace:*",
-    "@saasfly/tailwind-config": "workspace:*",
-    "@saasfly/typescript-config": "workspace:*",
     "@types/negotiator": "0.6.3",
     "@types/node": "20.12.7",
     "@types/react": "18.2.77",
@@ -51,9 +47,6 @@
   "eslintConfig": {
     "root": true,
     "extends": [
-      "@saasfly/eslint-config/base",
-      "@saasfly/eslint-config/nextjs",
-      "@saasfly/eslint-config/react"
     ]
   },
   "prettier": "@saasfly/prettier-config"

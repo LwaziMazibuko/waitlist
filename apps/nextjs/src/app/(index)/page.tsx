@@ -1,7 +1,6 @@
 "use client";
 import { BackgroundBeams } from "@saasfly/ui/background-beams";
-import { useState } from "react";
-import { env } from "~/env.mjs";
+import { useState, useEffect } from "react";
 
 export default function IndexPage() {
     const [email, setEmail] = useState("");
@@ -39,12 +38,9 @@ export default function IndexPage() {
                         Sign up and embark on a journey towards seamless crypto transactions. Join the revolution.
                     </p>
                     <form
-    action="https://us18.list-manage.com/survey?u=65d93396ebdf4137ba879b1b7&id=35e072d3a7&attribution=false"
-    method="POST"
-    target="_blank"
->
-
-                    
+                        method="POST"
+                        target="_blank"
+                    >
                         <div className="mb-8 flex flex-col justify-center gap-4 sm:flex-row">
                             <div className="relative z-10">
                                 <input
@@ -69,9 +65,7 @@ export default function IndexPage() {
                             </button>
                         </div>
                     </form>
-                    <div>
-                        Be the first to get notified when we lauch. 
-                    </div>
+                    <div id="getWaitlistContainer" data-waitlist_id="16240" data-widget_type="WIDGET_1"></div>
                 </div>
                 <div className="mt-auto"></div>
             </div>
@@ -79,3 +73,4 @@ export default function IndexPage() {
         </section>
     );
 }
+
