@@ -31,18 +31,20 @@ export default function IndexPage() {
                     <h1 className="mb-6 text-4xl font-bold lg:text-5xl">
                         Join The Waitlist for{" "}
                         <span className="bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
-              Laani
-            </span>{" "}
+                            Laani
+                        </span>{" "}
                         Today!
                     </h1>
                     <p className="mx-auto mb-8 max-w-3xl text-lg text-gray-600">
-                    Sign up and embark on a journey towards seamless crypto transactions. Join the revolution.
+                        Sign up and embark on a journey towards seamless crypto transactions. Join the revolution.
                     </p>
                     <form
-                        action={env.NEXT_PUBLIC_GOOGLE_FORM_URL}
-                        method="POST"
-                        target="_blank"
-                    >
+    action="https://us18.list-manage.com/survey?u=65d93396ebdf4137ba879b1b7&id=35e072d3a7&attribution=false"
+    method="POST"
+    target="_blank"
+>
+
+                    
                         <div className="mb-8 flex flex-col justify-center gap-4 sm:flex-row">
                             <div className="relative z-10">
                                 <input
@@ -52,7 +54,7 @@ export default function IndexPage() {
                                     value={email}
                                     onChange={handleEmailChange}
                                     onBlur={validateEmail}
-                                    name={env.NEXT_PUBLIC_GOOGLE_FORM_EMAIL}
+                                    name="EMAIL"
                                     required
                                 />
                                 {emailError && (

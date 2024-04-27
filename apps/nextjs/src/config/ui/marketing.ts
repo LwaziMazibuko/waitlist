@@ -2,8 +2,8 @@ export const getMarketingConfig = () => {
   return {
     mainNav: [
       {
-        title: "Github",
-        href: `https://github.com/saasfly/saasfly`,
+        title: "Laani Crypto Exchange",
+        href: ``,
       },
     ],
   };

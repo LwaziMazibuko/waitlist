@@ -28,13 +28,13 @@ export const metadata = {
   },
   description: siteConfig.description,
   keywords: [
-    "Next.js",
-    "Shadcn ui",
-    "Sass",
-    "Fast ",
-    "Simple ",
+    "Crypto Exchnage",
+    "South Africa",
+    "Buy Bitcoin",
+    "Sell Crypto ",
+    "How to buy Cryoto ",
     "Easy",
-    "Cloud Native",
+    "Crypto Price",
   ],
   authors: [
     {
@@ -55,7 +55,7 @@ export const metadata = {
     shortcut: "/favicon-16x16.ico",
     // apple: "/apple-touch-icon.png",
   },
-  metadataBase: new URL("https://waitlist.saasfly.io/"),
+  metadataBase: new URL("https://waitlist.laani.io/"),
   // manifest: `${siteConfig.url}/site.webmanifest`,
 };
 
