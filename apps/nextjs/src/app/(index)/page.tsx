@@ -1,12 +1,14 @@
-"use client";
+"use client"; // This is a client component 👈🏽
 import { BackgroundBeams } from "@saasfly/ui/background-beams";
 import { useState } from "react";
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../../Firebase';
+import SignUpSuccessModal from '../../components/SignUpSuccessModal';
 
 export default function IndexPage() {
     const [email, setEmail] = useState("");
     const [emailError, setEmailError] = useState("");
+    const [showModal, setShowModal] = useState(false);
 
     const handleEmailChange = (event) => {
         const { value } = event.target;
@@ -24,11 +26,13 @@ export default function IndexPage() {
             }
 
             // Add email to Firestore collection
-            await addDoc(collection(db, "users"), 
-            { email });
+            await addDoc(collection(db, "users"), { email });
             
             // Clear the email field
             setEmail("");
+
+            // Show the success modal
+            setShowModal(true);
 
             console.log("Email added to waitlist successfully!");
         } catch (error) {
@@ -40,6 +44,25 @@ export default function IndexPage() {
     const validateEmail = (email) => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
+    };
+
+    const handleCloseModal = () => {
+      setShowModal(false);
+    };
+
+    const shareWaitlist = () => {
+        const waitlistLink = "https://waitlist.laani.io/"; // Replace with your actual waitlist link
+        const text = "Hey, I just joined the Laani waitlist. Join also: " + waitlistLink;
+    
+        if (navigator.share) {
+            navigator.share({ title: "Laani Waitlist", text: text, url: waitlistLink })
+                .then(() => console.log("Shared successfully"))
+                .catch((error) => console.error("Share failed:", error));
+        } else {
+            // Fallback for browsers/devices that don't support navigator.share
+            // You can provide alternative behavior here, such as copying the link to clipboard
+            console.log("Sharing not supported");
+        }
     };
 
     return (
@@ -86,10 +109,40 @@ export default function IndexPage() {
                             </button>
                         </div>
                     </form>
+                    <div>
+                        Explore our Link Tree for additional info.
+
+                    </div>
+                    <div className="relative z-10">
+                        <a
+                            href="https://waitlist.laani.io/"
+                            className="text-sm font-semibold text-blue-500 hover:text-blue-600"
+                        >
+                            More Details →
+                        </a>
+                    </div>
+                    
+                    <div>
+                     Spread the word! Share the waitlist with friends.
+
+                    </div> 
+                    <div className="relative z-10">
+                        <a
+                            href="https://waitlist.laani.io/"
+                            className="text-sm font-semibold text-blue-500 hover:text-blue-600"
+                            onClick={shareWaitlist}
+                        >
+                            Share Waitlist →
+                        </a>
+                    </div>
                 </div>
                 <div className="mt-auto"></div>
+
+                
             </div>
             <BackgroundBeams className="absolute inset-0" />
+            {/* Render modal if showModal is true */}
+            {showModal && <SignUpSuccessModal onClose={handleCloseModal} />}
         </section>
     );
 }
