@@ -110,8 +110,7 @@ export default function IndexPage() {
                         </div>
                     </form>
                     <div>
-                        Explore our Link Tree for additional info.
-
+                        Make sure you give us a follow to say in tune.
                     </div>
                     <div className="relative z-10">
                         <a
