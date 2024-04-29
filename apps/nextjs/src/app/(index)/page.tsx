@@ -1,15 +1,40 @@
 "use client";
 import { BackgroundBeams } from "@saasfly/ui/background-beams";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { collection, addDoc } from 'firebase/firestore';
+import { db } from '../../Firebase';
 
 export default function IndexPage() {
     const [email, setEmail] = useState("");
     const [emailError, setEmailError] = useState("");
 
-    const handleEmailChange = (e) => {
-        const newEmail = e.target.value;
-        setEmail(newEmail);
-        setEmailError(validateEmail(newEmail) ? "" : "Invalid email");
+    const handleEmailChange = (event) => {
+        const { value } = event.target;
+        setEmail(value);
+        setEmailError(validateEmail(value) ? "" : "Invalid email");
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            // Validate email before proceeding
+            if (!validateEmail(email)) {
+                setEmailError("Invalid email");
+                return;
+            }
+
+            // Add email to Firestore collection
+            await addDoc(collection(db, "users"), 
+            { email });
+            
+            // Clear the email field
+            setEmail("");
+
+            console.log("Email added to waitlist successfully!");
+        } catch (error) {
+            console.error("Firestore error:", error); // Print entire error object
+            alert("An error occurred while adding email to users collection. Please try again later.");
+        }
     };
 
     const validateEmail = (email) => {
@@ -23,7 +48,7 @@ export default function IndexPage() {
                 <div className="mb-auto"></div>
                 <div className="py-12 lg:py-16">
                     <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-blue-500">
-                        🔥 The dawn of a new era in finance is here, 
+                        🔥 The dawn of a new era in finance is here,
                         <br />
                         and we're leading the charge to ensure it is accessible to all.!
                     </p>
@@ -37,20 +62,16 @@ export default function IndexPage() {
                     <p className="mx-auto mb-8 max-w-3xl text-lg text-gray-600">
                         Sign up and embark on a journey towards seamless crypto transactions. Join the revolution.
                     </p>
-                    <form
-                        method="POST"
-                        target="_blank"
-                    >
+                    <form onSubmit={handleSubmit}>
                         <div className="mb-8 flex flex-col justify-center gap-4 sm:flex-row">
                             <div className="relative z-10">
                                 <input
                                     type="email"
-                                    placeholder="Your Email Address"
+                                    placeholder="Email"
                                     className="w-full rounded-md border bg-white px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:w-80"
                                     value={email}
                                     onChange={handleEmailChange}
-                                    onBlur={validateEmail}
-                                    name="EMAIL"
+                                    name="email"
                                     required
                                 />
                                 {emailError && (
@@ -65,7 +86,6 @@ export default function IndexPage() {
                             </button>
                         </div>
                     </form>
-                    <div id="getWaitlistContainer" data-waitlist_id="16240" data-widget_type="WIDGET_1"></div>
                 </div>
                 <div className="mt-auto"></div>
             </div>
@@ -73,4 +93,3 @@ export default function IndexPage() {
         </section>
     );
 }
-
