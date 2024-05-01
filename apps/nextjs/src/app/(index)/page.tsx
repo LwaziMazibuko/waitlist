@@ -72,7 +72,7 @@ export default function IndexPage() {
                 <div className="mb-auto"></div>
                 <div className="py-12 lg:py-16">
                     <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-blue-500">
-                    🌟 Welcome to the Future of Finance! 🌟,
+                    🌟 Welcome to the Future of Finance!
                         <br />
                         we're ushering an era of financial accessibility. Our mission? To make finance simple for everyone.!
                     </p>
