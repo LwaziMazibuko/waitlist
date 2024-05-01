@@ -35,6 +35,7 @@ export default function IndexPage() {
             setShowModal(true);
 
             console.log("Email added to waitlist successfully!");
+            alert('You have successfully signed up!');
         } catch (error) {
             console.error("Firestore error:", error); // Print entire error object
             alert("An error occurred while adding email to users collection. Please try again later.");
