@@ -53,7 +53,7 @@ export default function IndexPage() {
 
     const shareWaitlist = () => {
         const waitlistLink = "https://waitlist.laani.io/"; // Replace with your actual waitlist link
-        const text = "Hey, I just joined the Laani waitlist. Join also: " + waitlistLink;
+        const text = "Hey, I Just joined Laani's waitlist for their crypto exchange launch! 🚀 Don't miss out—join me now! 🌟: " + waitlistLink;
     
         if (navigator.share) {
             navigator.share({ title: "Laani Waitlist", text: text, url: waitlistLink })
@@ -72,9 +72,9 @@ export default function IndexPage() {
                 <div className="mb-auto"></div>
                 <div className="py-12 lg:py-16">
                     <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-blue-500">
-                        🔥 The dawn of a new era in finance is here,
+                    🌟 Welcome to the Future of Finance! 🌟,
                         <br />
-                        and we're leading the charge to ensure it is accessible to all.!
+                        we're ushering an era of financial accessibility. Our mission? To make finance simple for everyone.!
                     </p>
                     <h1 className="mb-6 text-4xl font-bold lg:text-5xl">
                         Join The Waitlist for{" "}
@@ -84,7 +84,8 @@ export default function IndexPage() {
                         Today!
                     </h1>
                     <p className="mx-auto mb-8 max-w-3xl text-lg text-gray-600">
-                        Sign up and embark on a journey towards seamless crypto transactions. Join the revolution.
+                    You're not only securing your spot but also gaining exclusive access to updates and insights.                    Launch Date: 1 June 2024
+
                     </p>
                     <form onSubmit={handleSubmit}>
                         <div className="mb-8 flex flex-col justify-center gap-4 sm:flex-row">
@@ -111,11 +112,11 @@ export default function IndexPage() {
                         </div>
                     </form>
                     <div>
-                        Make sure you give us a follow to say in tune.
+                        Stay connected on your preferred social media platfrom.
                     </div>
                     <div className="relative z-10">
                         <a
-                            href="https://waitlist.laani.io/"
+                            href="https://linktr.ee/LaaniExchange"
                             className="text-sm font-semibold text-blue-500 hover:text-blue-600"
                         >
                             More Details →
@@ -123,7 +124,7 @@ export default function IndexPage() {
                     </div>
                     
                     <div>
-                     Spread the word! Share the waitlist with friends.
+                    Don't keep this excitement to yourself! Spread the word and invite friends.
 
                     </div> 
                     <div className="relative z-10">
